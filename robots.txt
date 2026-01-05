@@ -1,12 +1,4 @@
 User-agent: *
 Allow: /
 
-# Arquivos específicos
-Disallow: /cache/
-Disallow: /runde/
-Disallow: /*_old.html
-Disallow: /error_log
-Disallow: /express-editor-files.json
-
-# Sitemap
-Sitemap: https://seudominio.com/sitemap.xml
+Sitemap: http://duxico.com.br/sitemap.xml
