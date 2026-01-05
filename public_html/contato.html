@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato - Du Xico Charcutaria</title>
+  <meta name="description" content="Entre em contato conosco para pedidos, informações e encomendas especiais">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="https://storage.googleapis.com/production-hostgator-brasil-v1-0-9/639/238639/dAknLrPw/3bb1ebe7896446f489fb7c7da355aa59">
+</head>
+<body>
+  <header>
+    <h1>Du Xico Charcutaria</h1>
+    <p>Entre em Contato Conosco</p>
+  </header>
+
+  <nav class="main-navigation">
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="produtos.html">Produtos</a></li>
+      <li><a href="contato.html" class="kv-ee-active">Contato</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="charcutaria.html">Charcutaria</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h1>Fale Conosco</h1>
+      <p>Entre em contato para pedidos, informações sobre nossos produtos ou encomendas especiais. Estamos prontos para atender você!</p>
+    </section>
+
+    <section>
+      <h2>Formulário de Contato</h2>
+      <form id="contato-form">
+        <div class="form-group">
+          <label for="nome">Nome Completo:</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="telefone">Telefone:</label>
+          <input type="tel" id="telefone" name="telefone">
+        </div>
+        
+        <div class="form-group">
+          <label for="assunto">Assunto:</label>
+          <select id="assunto" name="assunto" required style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 4px; font-size: 1rem;">
+            <option value="">Selecione um assunto</option>
+            <option value="pedido">Fazer Pedido</option>
+            <option value="informacoes">Informações sobre Produtos</option>
+            <option value="encomenda">Encomenda Especial</option>
+            <option value="outros">Outros</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="mensagem">Mensagem:</label>
+          <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Descreva sua solicitação ou dúvida..."></textarea>
+        </div>
+        
+        <button type="submit">Enviar Mensagem</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Informações de Contato</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 1rem;">
+        <div>
+          <h3>Localização</h3>
+          <p><strong>Du Xico Charcutaria</strong><br>
+          Piraí - RJ<br>
+          Interior do Rio de Janeiro</p>
+        </div>
+        
+        <div>
+          <h3>Horário de Funcionamento</h3>
+          <p><strong>Segunda a Sexta:</strong> 8h às 17h<br>
+          <strong>Sábado:</strong> 8h às 14h<br>
+          <strong>Domingo:</strong> Fechado</p>
+        </div>
+        
+        <div>
+          <h3>Pedidos e Encomendas</h3>
+          <p>Para pedidos especiais, recomendamos entrar em contato com antecedência mínima de 48 horas.</p>
+          <p>Entregas disponíveis na região mediante consulta.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Como Chegar</h2>
+      <p>Estamos localizados em Piraí, no interior do Rio de Janeiro, uma região tradicionalmente conhecida pela produção de alimentos artesanais de qualidade.</p>
+      <p>Entre em contato conosco para informações detalhadas sobre localização e como chegar até nossa charcutaria.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="kv-ee-container">
+      <div class="kv-ee-row">
+        <div class="kv-ee-top-footer">
+          <nav>
+            <ul>
+              <li><a href="index.html" class="kv-ee-opaque kv-ee-body-text">Início</a></li>
+              <li><a href="produtos.html" class="kv-ee-opaque kv-ee-body-text">Produtos</a></li>
+              <li><a href="contato.html" class="kv-ee-opaque kv-ee-body-text">Contato</a></li>
+              <li><a href="sobre.html" class="kv-ee-opaque kv-ee-body-text">Sobre</a></li>
+              <li><a href="charcutaria.html" class="kv-ee-opaque kv-ee-body-text">Charcutaria</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <p>© 2025 Du Xico Charcutaria. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Script básico para o formulário (funciona sem servidor)
+    document.getElementById('contato-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Coleta os dados do formulário
+      const nome = document.getElementById('nome').value;
+      const email = document.getElementById('email').value;
+      const telefone = document.getElementById('telefone').value;
+      const assunto = document.getElementById('assunto').value;
+      const mensagem = document.getElementById('mensagem').value;
+      
+      // Cria o link mailto com os dados
+      const subject = encodeURIComponent('Contato - ' + assunto);
+      const body = encodeURIComponent(
+        'Nome: ' + nome + '\n' +
+        'Email: ' + email + '\n' +
+        'Telefone: ' + telefone + '\n\n' +
+        'Mensagem:\n' + mensagem
+      );
+      
+      // Abre o cliente de email padrão
+      window.location.href = 'mailto:contato@duxicocharcutaria.com.br?subject=' + subject + '&body=' + body;
+      
+      // Limpa o formulário
+      this.reset();
+      
+      alert('Obrigado pelo contato! Seu cliente de email será aberto com a mensagem preenchida.');
+    });
+  </script>
+</body>
+</html>
