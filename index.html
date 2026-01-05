@@ -1,467 +1,72 @@
-<!doctype html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title id="meta-title">Marcelo Ferreira de Menezes — MBAM | Site Profissional</title>
-  <meta id="meta-desc" name="description" content="Site profissional de Marcelo Ferreira de Menezes (MBAM): Cloud Computing (AWS), Agro Sustentável, Consultoria e Gestão." />
-  <meta name="theme-color" content="#0F172A" />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:type" content="website" />
-  <meta id="og-title" property="og:title" content="Marcelo Ferreira de Menezes — MBAM" />
-  <meta id="og-desc" property="og:description" content="Cloud (AWS) + Agro Sustentável. Consultoria, tecnologia e resultados." />
-  <meta property="og:image" content="/assets/og-cover.jpg" />
-  <meta property="og:url" content="https://mfdemenezes.mbam.com.br/" />
-
-  <!-- SEO extras -->
-  <link rel="canonical" href="https://mfdemenezes.mbam.com.br/" />
-  <meta name="robots" content="index,follow" />
-
-  <!-- Fonts (opcional) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg:#0b1020;       /* azul bem escuro (fundo) */
-      --bg-2:#0f172a;     /* variação para seções */
-      --txt:#e5e7eb;      /* cinza claro do texto */
-      --muted:#9ca3af;    /* texto secundário */
-      --brand:#1d4ed8;    /* azul destaque */
-      --brand-2:#60a5fa;  /* azul claro para hovers */
-      --card:#111827;     /* cinza azulado para cartões */
-      --stroke:#1f2937;   /* linhas sutis */
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:linear-gradient(180deg,var(--bg) 0%, var(--bg-2) 100%);
-      color:var(--txt);
-    }
-    a{color:var(--brand); text-decoration:none}
-    a:hover{color:var(--brand-2)}
-    .container{max-width:1120px; margin:0 auto; padding:0 20px}
-    .btn{display:inline-flex; align-items:center; gap:10px; background:var(--brand); color:#fff; padding:12px 18px; border-radius:14px; font-weight:600; border:1px solid transparent; transition:.25s; cursor:pointer}
-    .btn:hover{background:transparent; border-color:var(--brand); color:var(--brand-2)}
-    .btn.outline{background:transparent; border:1px solid var(--stroke); color:var(--txt)}
-    .badge{display:inline-block; padding:6px 10px; border:1px solid var(--stroke); border-radius:999px; color:var(--muted); font-size:12px; letter-spacing:.2px}
-    header{position:sticky; top:0; z-index:40; backdrop-filter:saturate(180%) blur(10px); background:rgba(11,16,32,.6); border-bottom:1px solid var(--stroke)}
-    nav{display:flex; align-items:center; justify-content:space-between; height:70px}
-    .logo{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.4px}
-    .logo-mark{width:32px; height:32px; border-radius:8px; background:linear-gradient(135deg,var(--brand),#020617); display:grid; place-items:center; font-size:14px}
-    .navlinks{display:flex; gap:22px; align-items:center}
-    .navlinks a{color:var(--txt); opacity:.9}
-    .navlinks a:hover{opacity:1}
-    .menu-btn{display:none}
-
-    /* Language switcher */
-    .lang-switch{display:flex; align-items:center; gap:8px}
-    .lang-switch button{background:transparent; border:1px solid var(--stroke); color:var(--txt); padding:6px 10px; border-radius:10px; cursor:pointer}
-    .lang-switch button.active{border-color:var(--brand); color:var(--brand-2)}
-
-    /* Hero */
-    .hero{padding:72px 0 40px}
-    .hero-grid{display:grid; grid-template-columns:1.9fr .9fr; gap:40px; align-items:center}
-    .title{font-size:44px; line-height:1.08; margin:12px 0 10px; font-weight:800}
-    .subtitle{color:var(--muted); font-size:18px; max-width:64ch}
-    .actions{margin-top:28px; display:flex; gap:14px; flex-wrap:wrap}
-    .hero-card{background:radial-gradient(1200px 600px at 20% -20%, rgba(29,78,216,.25), transparent 60%), var(--card); border:1px solid var(--stroke); border-radius:20px; padding:20px; display:flex; gap:18px; align-items:center}
-    .hero-card img{width:72px; height:72px; border-radius:14px; object-fit:cover; border:1px solid var(--stroke)}
-
-    /* Sections */
-    section{padding:64px 0; border-top:1px solid var(--stroke)}
-    h2{font-size:28px; margin:0 0 10px}
-    p.lead{color:var(--muted); max-width:70ch}
-
-    /* Cards grid */
-    .grid{display:grid; gap:18px}
-    .grid.cards{grid-template-columns:repeat(12,1fr)}
-    .card{grid-column:span 4; background:var(--card); border:1px solid var(--stroke); border-radius:18px; padding:18px}
-    .card h3{margin:6px 0 6px; font-size:18px}
-    .card p{color:var(--muted); font-size:14px}
-
-    /* Experience */
-    .timeline{display:grid; gap:16px; margin-top:12px}
-    .item{background:var(--card); border:1px solid var(--stroke); border-radius:16px; padding:16px}
-    .item .when{font-size:12px; color:var(--muted)}
-
-    /* Footer */
-    footer{border-top:1px solid var(--stroke); padding:28px 0 60px; color:var(--muted)}
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr;}
-      .title{font-size:36px}
-      .navlinks{display:none}
-      .menu-btn{display:inline-flex}
-    }
-    @media (max-width: 640px){
-      .card{grid-column:span 12}
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Du Xico Charcutaria</title>
+  <meta name="description" content="Linguiças artesanais, embutidos, defumados, maturados, queijos em Piraí - interior do Rio de Janeiro">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="https://storage.googleapis.com/production-hostgator-brasil-v1-0-9/639/238639/dAknLrPw/3bb1ebe7896446f489fb7c7da355aa59">
 </head>
 <body>
   <header>
-    <div class="container">
-      <nav aria-label="Principal">
-        <a class="logo" href="#home" aria-label="MBAM - Início">
-          <span class="logo-mark" aria-hidden="true">MB</span>
-          <span>MBAM</span>
-        </a>
-        <div class="lang-switch" aria-label="Seletor de idioma">
-          <button id="btn-pt" data-lang="pt" class="active" aria-pressed="true">🇧🇷 PT</button>
-          <button id="btn-en" data-lang="en" aria-pressed="false">🇺🇸 EN</button>
-        </div>
-        <button class="menu-btn btn outline" aria-controls="menu" aria-expanded="false" onclick="toggleMenu()" data-i18n="menu">Menu</button>
-        <div id="menu" class="navlinks" role="navigation">
-          <a href="#sobre" data-i18n="nav.about">Sobre</a>
-          <a href="#servicos" data-i18n="nav.services">Serviços</a>
-          <a href="#experiencia" data-i18n="nav.experience">Experiência</a>
-          <a href="#artigos" data-i18n="nav.articles">Artigos</a>
-          <a href="#contato" class="btn" data-i18n="nav.contact">Contato</a>
-        </div>
-      </nav>
-    </div>
+    <h1>Du Xico Charcutaria</h1>
+    <p>Linguiças artesanais, embutidos, defumados, maturados e queijos</p>
   </header>
 
-  <main id="home" class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div>
-          <span class="badge" data-i18n="hero.badge">• Zootecnia • Agro • Tecnologia • Cloud AWS • DevOps • </span>
-          <h1 class="title">Marcelo Ferreira de Menezes</h1>
-          <p class="subtitle" data-i18n="hero.subtitle">Profissional com atuação em <strong>Zootecnia</strong>, gestão e <strong>consultoria agropecuária sustentável</strong>. Experiência prática em nutrição e reprodução animal, otimização de processos e transformação digital no campo. Em estudo para certificações e preparação para o mercado de tecnologia e me especializando em infraestrutura, <strong>DevOps e Cloud Computing (AWS)</strong>.</p>
-          <div class="actions">
-            <a class="btn" href="#contato" data-i18n="hero.ctaPrimary">Fale comigo</a>
-            <a class="btn outline" href="#servicos" data-i18n="hero.ctaSecondary">Ver serviços</a>
-          </div>
-        </div>
-      </div>
-    </div>
+  <nav class="main-navigation">
+    <ul>
+      <li><a href="index.html" class="kv-ee-active">Início</a></li>
+      <li><a href="produtos.html">Produtos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="charcutaria.html">Charcutaria</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Bem-vindos à Du Xico Charcutaria</h2>
+      <p>Somos especialistas em produtos artesanais de charcutaria, oferecendo linguiças, embutidos, defumados, maturados e queijos de alta qualidade, produzidos em Piraí, no interior do Rio de Janeiro.</p>
+      
+      <p>Nossa paixão pela charcutaria tradicional se reflete em cada produto que criamos, utilizando técnicas artesanais e ingredientes selecionados para garantir o melhor sabor e qualidade.</p>
+    </section>
+
+    <section>
+      <h2>Nossos Produtos</h2>
+      <p>Confira nossa linha completa de produtos artesanais:</p>
+      <ul>
+        <li>Linguiças artesanais</li>
+        <li>Embutidos tradicionais</li>
+        <li>Defumados especiais</li>
+        <li>Produtos maturados</li>
+        <li>Queijos artesanais</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Localização</h2>
+      <p>Estamos localizados em Piraí, no interior do Rio de Janeiro, região conhecida pela tradição na produção de alimentos artesanais.</p>
+    </section>
   </main>
 
-  <section id="sobre">
-    <div class="container">
-      <h2 data-i18n="about.title">Sobre mim</h2>
-      <p class="lead" data-i18n="about.lead">Sou formado em Zootecnia, vivi e gerenciei operações de fazenda por anos e hoje estou focado em <strong>soluções em nuvem na AWS</strong> aplicadas ao agronegócio, produtividade e sustentabilidade. Busco unir conhecimento técnico do campo com tecnologia para gerar impacto real.</p>
-    </div>
-  </section>
-
-  <section id="formacao">
-    <div class="container">
-      <h2 data-i18n="edu.title">Formação acadêmica</h2>
-      <div class="timeline">
-        <div class="item">
-          <div class="when">2010</div>
-          <strong data-i18n="edu.degree">Bacharelado em Zootecnia</strong>
-          <p class="lead" data-i18n="edu.summary">Formação superior voltada para o planejamento, manejo e otimização da produção animal, com enfoque em sustentabilidade e eficiência produtiva. As principais áreas de estudo incluíram:</p>
-          <p><strong data-i18n="edu.nutritionTitle">Nutrição Animal</strong></p>
-          <p class="lead" data-i18n="edu.nutrition">Formulação de dietas balanceadas para gado de corte, leite e outras espécies, considerando exigências nutricionais, custo-benefício e impacto ambiental.</p>
-          <p><strong data-i18n="edu.reproTitle">Reprodução e Melhoramento Genético</strong></p>
-          <p class="lead" data-i18n="edu.repro">Técnicas de inseminação artificial, seleção de reprodutores e manejo reprodutivo para aumento de produtividade e qualidade do rebanho.</p>
-          <p><strong data-i18n="edu.pastureTitle">Manejo de Pastagens</strong></p>
-          <p class="lead" data-i18n="edu.pasture">Planejamento e implantação de sistemas de pastejo rotacionado, integração lavoura-pecuária e conservação de forrageiras.</p>
-          <p><strong data-i18n="edu.prodTitle">Produção de Ruminantes e Monogástricos</strong></p>
-          <p class="lead" data-i18n="edu.prod">Estratégias de criação, sanidade e bem-estar animal em sistemas intensivos e extensivos.</p>
-          <p><strong data-i18n="edu.techTitle">Tecnologia de Produtos de Origem Animal</strong></p>
-          <p class="lead" data-i18n="edu.tech">Processamento e controle de qualidade de carne, leite e derivados.</p>
-          <p><strong data-i18n="edu.mgmtTitle">Gestão e Economia Rural</strong></p>
-          <p class="lead" data-i18n="edu.mgmt">Planejamento econômico, gestão de propriedades rurais e análise de viabilidade de projetos agropecuários.</p>
+  <footer class="site-footer">
+    <div class="kv-ee-container">
+      <div class="kv-ee-row">
+        <div class="kv-ee-top-footer">
+          <nav>
+            <ul>
+              <li><a href="index.html" class="kv-ee-opaque kv-ee-body-text">Início</a></li>
+              <li><a href="produtos.html" class="kv-ee-opaque kv-ee-body-text">Produtos</a></li>
+              <li><a href="contato.html" class="kv-ee-opaque kv-ee-body-text">Contato</a></li>
+              <li><a href="sobre.html" class="kv-ee-opaque kv-ee-body-text">Sobre</a></li>
+              <li><a href="charcutaria.html" class="kv-ee-opaque kv-ee-body-text">Charcutaria</a></li>
+            </ul>
+          </nav>
         </div>
       </div>
     </div>
-  </section>
-
-  <section id="servicos">
-    <div class="container">
-      <h2 data-i18n="services.title">Serviços & Competências</h2>
-      <p class="lead" data-i18n="services.lead">Atuação em tecnologia e gestão, com entregas orientadas a resultado.</p>
-      <div class="grid cards" style="margin-top:16px">
-        <article class="card">
-          <span class="badge" data-i18n="services.badge1">Cloud & DevOps</span>
-          <h3 data-i18n="services.card1.title">AWS Foundations & Automação</h3>
-          <p data-i18n="services.card1.body">Arquitetura básica na AWS, S3 estático, autenticação com Cognito, pipelines Git e boas práticas de segurança.</p>
-        </article>
-        <article class="card">
-          <span class="badge" data-i18n="services.badge2">Agro</span>
-          <h3 data-i18n="services.card2.title">Consultoria Agro Sustentável</h3>
-          <p data-i18n="services.card2.body">Manejo de pastagens, ILPF, nutrição e reprodução animal, melhorias de produtividade e qualidade.</p>
-        </article>
-        <article class="card">
-          <span class="badge" data-i18n="services.badge3">Gestão</span>
-          <h3 data-i18n="services.card3.title">Processos & Qualidade</h3>
-          <p data-i18n="services.card3.body">Diagnóstico, padronização e treinamento de equipes, com foco em eficiência e segurança alimentar.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="experiencia">
-    <div class="container">
-      <h2 data-i18n="exp.title">Experiência selecionada</h2>
-      <div class="timeline">
-        <div class="item">
-          <div class="when">1997–1999</div>
-          <strong data-i18n="exp.job1.title">Meridional Câmbio, Viagem e Turismo – Assistente Administrativo (1997 – 1999)</strong>
-          <p class="lead" data-i18n="exp.job1.l1">Atendimento ao cliente, emissão de passagens e reservas de hospedagem.</p>
-          <p class="lead" data-i18n="exp.job1.l2">Apoio no setor financeiro, controle de caixa e conciliação bancária.</p>
-          <p class="lead" data-i18n="exp.job1.l3">Suporte às operações de câmbio e documentação de viagens internacionais.</p>
-        </div>
-        <div class="item">
-          <div class="when">1999–2002</div>
-          <strong data-i18n="exp.job2.title">Routetur – Agência de Turismo – Sócio Proprietário (1999 – 2002)</strong>
-          <p class="lead" data-i18n="exp.job2.l1">Estruturação e gestão de agência de turismo com foco em viagens nacionais e internacionais.</p>
-          <p class="lead" data-i18n="exp.job2.l2">Negociação com fornecedores e criação de pacotes personalizados para diferentes públicos.</p>
-          <p class="lead" data-i18n="exp.job2.l3">Gestão administrativa e financeira da empresa.</p>
-        </div>
-        <div class="item">
-          <div class="when">+19 anos</div>
-          <strong data-i18n="exp.job3.title">Fazenda Recreio do Paraíso – Proprietário e Gestor Agropecuário (2003 – 2022)</strong>
-          <p class="lead" data-i18n="exp.job3.l1">Administração geral de propriedade rural localizada em Piraí–RJ, com foco em sistemas sustentáveis de produção animal.</p>
-          <p class="lead" data-i18n="exp.job3.l2">Implantação e manejo de sistemas de pastagem rotacionada e integração lavoura-pecuária-floresta (ILPF), visando aumento da produtividade e preservação ambiental.</p>
-          <p class="lead" data-i18n="exp.job3.l3">Gestão de rebanho de gado de corte e leiteiro, incluindo manejo nutricional, reprodutivo e sanitário.</p>
-          <p class="lead" data-i18n="exp.job3.l4">Desenvolvimento e aplicação de protocolos de reprodução assistida para melhoria genética do rebanho.</p>
-          <p class="lead" data-i18n="exp.job3.l5">Gestão de equipe, controle de custos e planejamento estratégico para expansão das atividades.</p>
-          <p class="lead" data-i18n="exp.job3.l6">Parcerias com fornecedores e clientes para comercialização de carne e leite de alta qualidade.</p>
-        </div>
-        <div class="item">
-          <div class="when">2008–2024</div>
-          <strong data-i18n="exp.job4.title">Hotel Fazenda Recreio do Paraíso (2008 – 2024)</strong>
-          <p class="lead" data-i18n="exp.job4.l1">Coordenação e gestão de um hotel fazenda integrado à atividade agropecuária, unindo turismo rural e produção sustentável.</p>
-          <p class="lead" data-i18n="exp.job4.l2">Planejamento e execução de eventos corporativos, religiosos e familiares, como retiros, encontros e convenções.</p>
-          <p class="lead" data-i18n="exp.job4.l3">Implementação de práticas de hospitalidade e atendimento ao cliente que elevaram o índice de satisfação e fidelização.</p>
-          <p class="lead" data-i18n="exp.job4.l4">Desenvolvimento de pacotes turísticos integrando hospedagem, gastronomia e experiências rurais.</p>
-          <p class="lead" data-i18n="exp.job4.l5">Gestão de equipe multidisciplinar (hotelaria, gastronomia, agro-turismo, manutenção e lazer).</p>
-        </div>
-        <div class="item">
-          <div class="when">2022–2023</div>
-          <strong data-i18n="exp.job5.title">Du Xico Embutidos e Defumados (2022–2023)</strong>
-          <p class="lead" data-i18n="exp.job5.l1">Reestruturação de processos produtivos visando eficiência, qualidade e segurança alimentar.</p>
-          <p class="lead" data-i18n="exp.job5.l2">Criação de novos produtos e adequação de receitas para atender demandas de mercado, como embutidos frescos e defumados, salames, pastramis, mortadelas, bacon e peças defumadas como lombo, costela e pernil, além do joelho defumado (Eisbein).</p>
-          <p class="lead" data-i18n="exp.job5.l3">Treinamento e capacitação de funcionários em boas práticas de fabricação e atendimento ao cliente.</p>
-          <p class="lead" data-i18n="exp.job5.l4">Desenvolvimento de estratégias de marketing e expansão para novos pontos de venda.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="artigos">
-    <div class="container">
-      <h2 data-i18n="articles.title">Artigos & Publicações</h2>
-      <p class="lead" data-i18n="articles.lead">Conteúdo técnico e opiniões publicados no LinkedIn.</p>
-      <div class="grid cards" style="margin-top:16px">
-        <article class="card" aria-label="Artigo no LinkedIn">
-          <h3 data-i18n="articles.a1.title">Pastagem Rotacionada e Integração Lavoura-Pecuária-Floresta (ILPF): O futuro da Agropecuária Americana está na Produção Regenerativa</h3>
-          <p data-i18n="articles.a1.body">Estratégias práticas para produtividade e sustentabilidade. <a href="https://www.linkedin.com/pulse/pastagem-rotacionada-e-integra%25C3%25A7%25C3%25A3o-ilpf-o-futuro-da-na-marcelo-ku8ve/" target="_blank" aria-label="Ler no LinkedIn">Ler no LinkedIn →</a></p>
-        </article>
-        <article class="card" aria-label="Artigo no LinkedIn">
-          <h3 data-i18n="articles.a2.title">Charcutaria de Valor Agregado: Quando a Zootecnia Encontra a Identidade Territorial</h3>
-          <p data-i18n="articles.a2.body">Primeiros passos para valor com dados no campo. <a href="https://www.linkedin.com/pulse/charcutaria-de-valor-agregado-quando-zootecnia-ferreira-de-menezes-kkjqe/?trackingId=WFV70Dm1Q0GKh4lqGiA%2Fcw%3D%3D" target="_blank">Ler no LinkedIn →</a></p>
-        </article>
-        <article class="card" aria-label="Artigo no LinkedIn">
-          <h3 data-i18n="articles.a3.title">Boas práticas de qualidade no processamento</h3>
-          <p data-i18n="articles.a3.body">Padronização, registros e cultura de melhoria contínua. <a href="#">Ler no LinkedIn →</a></p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="contato">
-    <div class="container">
-      <h2 data-i18n="contact.title">Contato</h2>
-      <p class="lead" data-i18n="contact.lead">Prefere falar agora? Envie um e-mail ou mensagem no LinkedIn.</p>
-      <div class="actions" style="margin-top:10px">
-        <a class="btn" href="mailto:mfdemenezes@mbam.com.br">mfdemenezes@mbam.com.br</a>
-        <a class="btn outline" href="https://www.linkedin.com/in/marcelo-ferreira-de-menezes-b0190233b/" target="_blank" rel="noopener" data-i18n="contact.linkedin">LinkedIn</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
-        <div>© <span id="year"></span> MBAM — Marcelo Ferreira de Menezes</div>
-        <div class="badge" data-i18n="footer.badge">Feito para performance (S3 estático)</div>
-      </div>
-    </div>
+    <p>© 2025 Du Xico Charcutaria. Todos os direitos reservados.</p>
   </footer>
-
-  <!-- Structured Data -->
-  <script type="application/ld+json" id="ld-json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Marcelo Ferreira de Menezes",
-    "url": "https://mfdemenezes.mbam.com.br/",
-    "jobTitle": "Consultor | Cloud (AWS) & Agro",
-    "sameAs": [
-      "https://www.linkedin.com/in/marcelo-ferreira-de-menezes/"
-    ]
-  }
-  </script>
-
-  <script>
-    // === i18n: dicionário PT/EN ===
-    const dict = {
-      pt: {
-        menu: "Menu",
-        nav:{ about:"Sobre", services:"Serviços", experience:"Experiência", articles:"Artigos", contact:"Contato" },
-        hero:{
-          badge:"• Zootecnia • Agro • Tecnologia • Cloud AWS • DevOps • ",
-          subtitle:"Profissional com atuação em <strong>Zootecnia</strong>, gestão e <strong>consultoria agropecuária sustentável</strong>. Experiência prática em nutrição e reprodução animal, otimização de processos e transformação digital no campo. Em estudo para certificações e preparação para o mercado de tecnologia e me especializando em infraestrutura, <strong>DevOps e Cloud Computing (AWS)</strong>.",
-          ctaPrimary:"Fale comigo",
-          ctaSecondary:"Ver serviços"
-        },
-        about:{ title:"Sobre mim", lead:"Sou formado em Zootecnia, vivi e gerenciei operações de fazenda por anos e hoje estou focado em <strong>soluções em nuvem na AWS</strong> aplicadas ao agronegócio, produtividade e sustentabilidade. Busco unir conhecimento técnico do campo com tecnologia para gerar impacto real." },
-        edu:{
-          title:"Formação acadêmica",
-          degree:"Bacharelado em Zootecnia",
-          summary:"Formação superior voltada para o planejamento, manejo e otimização da produção animal, com enfoque em sustentabilidade e eficiência produtiva. As principais áreas de estudo incluíram:",
-          nutritionTitle:"Nutrição Animal", nutrition:"Formulação de dietas balanceadas para gado de corte, leite e outras espécies, considerando exigências nutricionais, custo-benefício e impacto ambiental.",
-          reproTitle:"Reprodução e Melhoramento Genético", repro:"Técnicas de inseminação artificial, seleção de reprodutores e manejo reprodutivo para aumento de produtividade e qualidade do rebanho.",
-          pastureTitle:"Manejo de Pastagens", pasture:"Planejamento e implantação de sistemas de pastejo rotacionado, integração lavoura-pecuária e conservação de forrageiras.",
-          prodTitle:"Produção de Ruminantes e Monogástricos", prod:"Estratégias de criação, sanidade e bem-estar animal em sistemas intensivos e extensivos.",
-          techTitle:"Tecnologia de Produtos de Origem Animal", tech:"Processamento e controle de qualidade de carne, leite e derivados.",
-          mgmtTitle:"Gestão e Economia Rural", mgmt:"Planejamento econômico, gestão de propriedades rurais e análise de viabilidade de projetos agropecuários."
-        },
-        services:{
-          title:"Serviços & Competências", lead:"Atuação em tecnologia e gestão, com entregas orientadas a resultado.",
-          badge1:"Cloud & DevOps", badge2:"Agro", badge3:"Gestão",
-          card1:{title:"AWS Foundations & Automação", body:"Arquitetura básica na AWS, S3 estático, autenticação com Cognito, pipelines Git e boas práticas de segurança."},
-          card2:{title:"Consultoria Agro Sustentável", body:"Manejo de pastagens, ILPF, nutrição e reprodução animal, melhorias de produtividade e qualidade."},
-          card3:{title:"Processos & Qualidade", body:"Diagnóstico, padronização e treinamento de equipes, com foco em eficiência e segurança alimentar."}
-        },
-        exp:{
-          title:"Experiência selecionada",
-          job1:{title:"Meridional Câmbio, Viagem e Turismo – Assistente Administrativo (1997 – 1999)", l1:"Atendimento ao cliente, emissão de passagens e reservas de hospedagem.", l2:"Apoio no setor financeiro, controle de caixa e conciliação bancária.", l3:"Suporte às operações de câmbio e documentação de viagens internacionais."},
-          job2:{title:"Routetur – Agência de Turismo – Sócio Proprietário (1999 – 2002)", l1:"Estruturação e gestão de agência de turismo com foco em viagens nacionais e internacionais.", l2:"Negociação com fornecedores e criação de pacotes personalizados para diferentes públicos.", l3:"Gestão administrativa e financeira da empresa."},
-          job3:{title:"Fazenda Recreio do Paraíso – Proprietário e Gestor Agropecuário (2003 – 2022)", l1:"Administração geral de propriedade rural localizada em Piraí–RJ, com foco em sistemas sustentáveis de produção animal.", l2:"Implantação e manejo de sistemas de pastagem rotacionada e integração lavoura-pecuária-floresta (ILPF), visando aumento da produtividade e preservação ambiental.", l3:"Gestão de rebanho de gado de corte e leiteiro, incluindo manejo nutricional, reprodutivo e sanitário.", l4:"Desenvolvimento e aplicação de protocolos de reprodução assistida para melhoria genética do rebanho.", l5:"Gestão de equipe, controle de custos e planejamento estratégico para expansão das atividades.", l6:"Parcerias com fornecedores e clientes para comercialização de carne e leite de alta qualidade."},
-          job4:{title:"Hotel Fazenda Recreio do Paraíso (2008 – 2024)", l1:"Coordenação e gestão de um hotel fazenda integrado à atividade agropecuária, unindo turismo rural e produção sustentável.", l2:"Planejamento e execução de eventos corporativos, religiosos e familiares, como retiros, encontros e convenções.", l3:"Implementação de práticas de hospitalidade e atendimento ao cliente que elevaram o índice de satisfação e fidelização.", l4:"Desenvolvimento de pacotes turísticos integrando hospedagem, gastronomia e experiências rurais.", l5:"Gestão de equipe multidisciplinar (hotelaria, gastronomia, agro-turismo, manutenção e lazer)."},
-          job5:{title:"Du Xico Embutidos e Defumados (2022–2023)", l1:"Reestruturação de processos produtivos visando eficiência, qualidade e segurança alimentar.", l2:"Criação de novos produtos e adequação de receitas para atender demandas de mercado, como embutidos frescos e defumados, salames, pastramis, mortadelas, bacon e peças defumadas como lombo, costela e pernil, além do joelho defumado (Eisbein).",
-              l3:"Treinamento e capacitação de funcionários em boas práticas de fabricação e atendimento ao cliente.", l4:"Desenvolvimento de estratégias de marketing e expansão para novos pontos de venda."}
-        },
-        articles:{
-          title:"Artigos & Publicações", lead:"Conteúdo técnico e opiniões publicados no LinkedIn.",
-          a1:{title:"Pastagem Rotacionada e Integração Lavoura-Pecuária-Floresta (ILPF): O futuro da Agropecuária Americana está na Produção Regenerativa", body:"Estratégias práticas para produtividade e sustentabilidade. <a href=\"https://www.linkedin.com/pulse/pastagem-rotacionada-e-integra%25C3%25A7%25C3%25A3o-ilpf-o-futuro-da-na-marcelo-ku8ve/\" target=\"_blank\" aria-label=\"Ler no LinkedIn\">Ler no LinkedIn →</a>"},
-          a2:{title:"Charcutaria de Valor Agregado: Quando a Zootecnia Encontra a Identidade Territorial", body:"Primeiros passos para valor com dados no campo. <a href=\"https://www.linkedin.com/pulse/charcutaria-de-valor-agregado-quando-zootecnia-ferreira-de-menezes-kkjqe/?trackingId=WFV70Dm1Q0GKh4lqGiA%2Fcw%3D%3D\" target=\"_blank\">Ler no LinkedIn →</a>"},
-          a3:{title:"Boas práticas de qualidade no processamento", body:"Padronização, registros e cultura de melhoria contínua. <a href=\"#\">Ler no LinkedIn →</a>"}
-        },
-        contact:{ title:"Contato", lead:"Prefere falar agora? Envie um e-mail ou mensagem no LinkedIn.", linkedin:"LinkedIn" },
-        footer:{ badge:"Feito para performance (S3 estático)" },
-        meta:{ title:"Marcelo Ferreira de Menezes — MBAM | Site Profissional", desc:"Site profissional de Marcelo Ferreira de Menezes (MBAM): Cloud Computing (AWS), Agro Sustentável, Consultoria e Gestão.", ogTitle:"Marcelo Ferreira de Menezes — MBAM", ogDesc:"Cloud (AWS) + Agro Sustentável. Consultoria, tecnologia e resultados." }
-      },
-      en: {
-        menu: "Menu",
-        nav:{ about:"About", services:"Services", experience:"Experience", articles:"Articles", contact:"Contact" },
-        hero:{
-          badge:"• Animal Science • Ag • Technology • AWS Cloud • DevOps • ",
-          subtitle:"Professional in <strong>Animal Science</strong>, management and <strong>sustainable agribusiness consulting</strong>. Hands-on experience in animal nutrition and reproduction, process optimization and digital transformation on the farm. Currently pursuing certifications and specializing in infrastructure, <strong>DevOps and Cloud Computing (AWS)</strong>.",
-          ctaPrimary:"Contact me",
-          ctaSecondary:"See services"
-        },
-        about:{ title:"About me", lead:"I hold a degree in Animal Science, spent years living and managing farm operations, and I am now focused on <strong>AWS cloud solutions</strong> applied to agribusiness, productivity and sustainability. I connect field expertise with technology to generate real impact." },
-        edu:{
-          title:"Education",
-          degree:"B.S. in Animal Science",
-          summary:"Bachelor's degree focused on planning, management and optimization of animal production with emphasis on sustainability and productivity. Main study areas included:",
-          nutritionTitle:"Animal Nutrition", nutrition:"Balanced diet formulation for beef, dairy and other species, considering nutritional requirements, cost-benefit and environmental impact.",
-          reproTitle:"Reproduction & Genetic Improvement", repro:"Artificial insemination techniques, sire selection and reproductive management to increase productivity and herd quality.",
-          pastureTitle:"Pasture Management", pasture:"Design and implementation of rotational grazing systems, crop-livestock integration and forage conservation.",
-          prodTitle:"Ruminant & Monogastric Production", prod:"Husbandry strategies, health and animal welfare in intensive and extensive systems.",
-          techTitle:"Animal Products Technology", tech:"Processing and quality control of meat, milk and derivatives.",
-          mgmtTitle:"Farm Management & Economics", mgmt:"Economic planning, farm management and feasibility analysis of agricultural projects."
-        },
-        services:{
-          title:"Services & Skills", lead:"Technology and management with results-driven delivery.",
-          badge1:"Cloud & DevOps", badge2:"Ag", badge3:"Management",
-          card1:{title:"AWS Foundations & Automation", body:"Basic AWS architecture, static S3, Cognito authentication, Git pipelines and security best practices."},
-          card2:{title:"Sustainable Ag Consulting", body:"Pasture management, CLFI, animal nutrition and reproduction, productivity and quality improvements."},
-          card3:{title:"Process & Quality", body:"Diagnostics, standardization and team training focused on efficiency and food safety."}
-        },
-        exp:{
-          title:"Selected experience",
-          job1:{title:"Meridional Câmbio, Travel & Tourism — Administrative Assistant (1997–1999)", l1:"Customer service, ticketing and hotel reservations.", l2:"Support to finance, cash control and bank reconciliation.", l3:"Support for foreign exchange operations and international travel documentation."},
-          job2:{title:"Routetur — Travel Agency — Co‑owner (1999–2002)", l1:"Set up and managed a travel agency focused on domestic and international trips.", l2:"Negotiated with suppliers and created tailored packages for different audiences.", l3:"Handled administrative and financial management."},
-          job3:{title:"Fazenda Recreio do Paraíso — Owner & Farm Manager (2003–2022)", l1:"Overall management of a farm in Piraí–RJ, focused on sustainable animal production systems.", l2:"Implemented rotational grazing and crop‑livestock‑forest integration (CLFI) to boost productivity and preserve the environment.", l3:"Managed beef and dairy herds, including nutrition, reproduction and health.", l4:"Developed and applied assisted reproduction protocols for genetic improvement.", l5:"Led teams, cost control and strategic planning for expansion.", l6:"Built partnerships to market high‑quality beef and milk."},
-          job4:{title:"Hotel Fazenda Recreio do Paraíso (2008–2024)", l1:"Coordinated and managed a farm hotel integrated with agriculture, combining rural tourism and sustainable production.", l2:"Planned and executed corporate, religious and family events such as retreats and conventions.", l3:"Implemented hospitality practices that increased satisfaction and loyalty.", l4:"Developed tourism packages combining lodging, gastronomy and rural experiences.", l5:"Managed a multidisciplinary team (hospitality, gastronomy, agrotourism, maintenance and leisure)."},
-          job5:{title:"Du Xico Cured & Smoked Meats (2022–2023)", l1:"Restructured production processes aiming at efficiency, quality and food safety.", l2:"Created new products and adjusted recipes for market demand (fresh and smoked sausages, salami, pastrami, mortadella, bacon and smoked cuts like loin, ribs and ham, plus Eisbein).",
-              l3:"Trained staff in good manufacturing practices and customer service.", l4:"Developed marketing strategies and expansion to new points of sale."}
-        },
-        articles:{
-          title:"Articles & Publications", lead:"Technical content and opinions published on LinkedIn.",
-          a1:{title:"Rotational Grazing & Crop-Livestock-Forestry Integration: The future of U.S. Agriculture is in Regenerative Production", body:"Practical strategies for productivity and sustainability. <a href=\"https://www.linkedin.com/pulse/pastagem-rotacionada-e-integra%25C3%25A7%25C3%25A3o-ilpf-o-futuro-da-na-marcelo-ku8ve/\" target=\"_blank\" aria-label=\"Read on LinkedIn\">Read on LinkedIn →</a>"},
-          a2:{title:"Value‑Added Charcuterie: When Animal Science Meets Territorial Identity", body:"First steps to value with data in the field. <a href=\"https://www.linkedin.com/pulse/charcutaria-de-valor-agregado-quando-zootecnia-ferreira-de-menezes-kkjqe/?trackingId=WFV70Dm1Q0GKh4lqGiA%2Fcw%3D%3D\" target=\"_blank\">Read on LinkedIn →</a>"},
-          a3:{title:"Quality best practices in processing", body:"Standardization, records and a culture of continuous improvement. <a href=\"#\">Read on LinkedIn →</a>"}
-        },
-        contact:{ title:"Contact", lead:"Prefer to talk now? Send me an email or a LinkedIn message.", linkedin:"LinkedIn" },
-        footer:{ badge:"Built for performance (static S3)" },
-        meta:{ title:"Marcelo Ferreira de Menezes — MBAM | Professional Site", desc:"Professional site of Marcelo Ferreira de Menezes (MBAM): Cloud Computing (AWS), Sustainable Agriculture, Consulting & Management.", ogTitle:"Marcelo Ferreira de Menezes — MBAM", ogDesc:"Cloud (AWS) + Sustainable Ag. Consulting, technology and results." }
-      }
-    };
-
-    // Atualiza o conteúdo de acordo com o idioma
-    function applyLang(lang){
-      const t = dict[lang] || dict.pt;
-      document.documentElement.lang = (lang === 'en') ? 'en' : 'pt-BR';
-
-      // Navegação e textos
-      for(const el of document.querySelectorAll('[data-i18n]')){
-        const path = el.getAttribute('data-i18n').split('.');
-        let val = t;
-        for(const p of path){ val = val?.[p]; }
-        if(typeof val === 'string'){ el.innerHTML = val; }
-      }
-
-      // Metas básicas
-      document.getElementById('meta-title').textContent = t.meta.title;
-      document.getElementById('meta-desc').setAttribute('content', t.meta.desc);
-      document.getElementById('og-title').setAttribute('content', t.meta.ogTitle);
-      document.getElementById('og-desc').setAttribute('content', t.meta.ogDesc);
-
-      // Botões ativos
-      document.getElementById('btn-pt').classList.toggle('active', lang==='pt');
-      document.getElementById('btn-en').classList.toggle('active', lang==='en');
-      document.getElementById('btn-pt').setAttribute('aria-pressed', lang==='pt');
-      document.getElementById('btn-en').setAttribute('aria-pressed', lang==='en');
-
-      // Atualiza URL (?lang=) sem recarregar
-      const url = new URL(window.location);
-      url.searchParams.set('lang', lang);
-      window.history.replaceState({}, '', url);
-
-      // Salva preferência
-      localStorage.setItem('lang', lang);
-    }
-
-    function getInitialLang(){
-      const param = new URLSearchParams(window.location.search).get('lang');
-      if(param && (param==='pt' || param==='en')) return param;
-      const saved = localStorage.getItem('lang');
-      if(saved) return saved;
-      const nav = navigator.language || navigator.userLanguage || 'pt-BR';
-      return nav.toLowerCase().startsWith('en') ? 'en' : 'pt';
-    }
-
-    // Utilidades simples de UI
-    const y = document.getElementById('year'); if(y) y.textContent = new Date().getFullYear();
-    function toggleMenu(){
-      const m = document.getElementById('menu');
-      const btn = document.querySelector('.menu-btn');
-      const open = getComputedStyle(m).display === 'none';
-      m.style.display = open ? 'flex' : 'none';
-      btn.setAttribute('aria-expanded', String(open));
-    }
-
-    // Eventos do seletor de idioma
-    document.addEventListener('DOMContentLoaded', () => {
-      const lang = getInitialLang();
-      applyLang(lang);
-      document.getElementById('btn-pt').addEventListener('click', () => applyLang('pt'));
-      document.getElementById('btn-en').addEventListener('click', () => applyLang('en'));
-    });
-  </script>
 </body>
 </html>
