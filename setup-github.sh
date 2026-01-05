@@ -1,15 +1,14 @@
 #!/bin/bash
-# Execute este script após criar o repositório no GitHub
+# 1. Crie repositório no GitHub (público) chamado 'duxico'
+# 2. Execute este script
 
-# Substitua 'seu-usuario' e 'nome-do-repo' pelos valores corretos
 GITHUB_USER="seu-usuario"
-REPO_NAME="website"
+REPO_NAME="duxico"
 
-echo "Configurando repositório remoto..."
 git remote add origin https://github.com/$GITHUB_USER/$REPO_NAME.git
 git branch -M main
 git push -u origin main
 
-echo "Repositório configurado! Acesse:"
-echo "https://github.com/$GITHUB_USER/$REPO_NAME"
-echo "Para ativar GitHub Pages: Settings > Pages > Source: Deploy from branch > main"
+echo "✅ Push concluído!"
+echo "📍 Ative GitHub Pages em: Settings > Pages > Source: main / (root)"
+echo "🌐 Site estará em: https://$GITHUB_USER.github.io/$REPO_NAME"
